@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+
+
+#%%
+import os
+from ruamel.yaml import YAML
+
+
+#%%
+yaml = YAML(typ='safe')
+
+
+#%%
+cwl = None
+with open('camelyon-cnns.cwl.yml') as f:
+    cwl = yaml.load(f)
+
+
+#%%
+ssh_host = 'avocado01.f4.htw-berlin.de'
+ssh_input_dir = '/data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask'
+ssh_output_dir = '/data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments'
+
+red = {
+    'redVersion': '6',
+    'cli': cwl,
+    'batches': [],
+    'container': {
+        'engine': 'nvidia-docker',
+        'settings': {
+            'image': {
+                'url': 'docker.io/deepprojects/camelyon-cnns:0.1'
+            },
+            'ram': 32768,
+            'gpus': {
+                'count': 1
+            }
+        }
+    },
+    'execution': {
+        'engine': 'ccagency',
+        'settings': {
+            'access': {
+                'url': 'https://agency.f4.htw-berlin.de/cc',
+                'auth': {
+                    'username': '{{agency_username}}',
+                    'password': '{{agency_password}}'
+                }
+            },
+            'retryIfFailed': False,
+            'batchConcurrencyLimit': 1
+        }
+    }
+}
+
+for arch in ['1', '2']:
+    for run in [str(i) for i in range(1, 11)]:
+        inp = {
+            'hdf5': {
+                'class': 'Directory',
+                'connector': {
+                    'command': 'red-connector-sshfs',
+                    'mount': True,
+                    'access': {
+                        'host': ssh_host,
+                        'username': '{{cbmi_username}}',
+                        'password': '{{cbmi_password}}',
+                        'dirName': ssh_input_dir
+                    }
+                }
+            },
+            'arch': arch,
+            'fast_hdf5': '1',
+            'mask_threshold': '0.1',
+            'epochs': '8',
+            'queue_size': '1'
+        }
+
+        file_dir = os.path.join(ssh_output_dir, 'cc_sequential_sshfs_arch{}'.format(arch), run)
+        out = {}
+        for key, file_name in [
+            ('log', 'log.json'),
+            ('acc_plot', 'acc.png'),
+            ('loss_plot', 'loss.png'),
+            ('roc_plot', 'roc.png'),
+            ('model_final', 'model_final.hdf5'),
+            ('checkpoint', 'checkpoint'),
+            ('model_checkpoint_data', 'model_checkpoint.ckpt.data'),
+            ('model_checkpoint_index', 'model_checkpoint.ckpt.index')
+        ]:
+            out[key] = {
+                'class': 'File',
+                'connector': {
+                    'command': 'red-connector-ssh',
+                    'access': {
+                        'host': ssh_host,
+                        'username': '{{cbmi_username}}',
+                        'password': '{{cbmi_password}}',
+                        'fileDir': file_dir,
+                        'fileName': file_name
+                    }
+                }
+            }
+
+        red['batches'].append({'inputs': inp, 'outputs': out})
+
+with open('camelyon-cnns.red.yml', 'w') as f:
+    yaml.dump(red, f)
+
+print(len(red['batches']))
