@@ -113,6 +113,11 @@ red['execution']['settings']['batchConcurrencyLimit'] = 3
 with open('camelyon-cnns-batchConcurrencyLimit-3.red.yml', 'w') as f:
     yaml.dump(red, f)
 
+red['execution']['settings']['batchConcurrencyLimit'] = 6
+
+with open('camelyon-cnns-batchConcurrencyLimit-6.red.yml', 'w') as f:
+    yaml.dump(red, f)
+
 red['execution']['settings']['batchConcurrencyLimit'] = 9
 
 with open('camelyon-cnns-batchConcurrencyLimit-9.red.yml', 'w') as f:
