@@ -24,7 +24,7 @@ ssh_output_dir = '/data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_
 red = {
     'redVersion': '6',
     'cli': cwl,
-    'batches': [],
+    'batches': None,
     'container': {
         'engine': 'nvidia-docker',
         'settings': {
@@ -48,12 +48,15 @@ red = {
                 }
             },
             'retryIfFailed': False,
-            'batchConcurrencyLimit': 1
+            'batchConcurrencyLimit': None
         }
     }
 }
 
 for lim in [1, 3, 9]:
+    red['batches'] = []
+    red['execution']['settings']['batchConcurrencyLimit'] = lim
+
     # 9 runs
     for run in [str(i) for i in range(1, 10)]:
         inp = {
@@ -104,8 +107,6 @@ for lim in [1, 3, 9]:
             }
 
         red['batches'].append({'inputs': inp, 'outputs': out})
-
-    red['execution']['settings']['batchConcurrencyLimit'] = lim
 
     with open('camelyon-cnns-batchConcurrencyLimit-{}.red.yml'.format(lim), 'w') as f:
         yaml.dump(red, f)
