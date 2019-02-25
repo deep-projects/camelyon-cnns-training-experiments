@@ -54,7 +54,8 @@ red = {
 }
 
 for arch in ['1', '2']:
-    for run in [str(i) for i in range(1, 11)]:
+    # 9 runs
+    for run in [str(i) for i in range(1, 10)]:
         inp = {
             'hdf5': {
                 'class': 'Directory',
@@ -104,7 +105,17 @@ for arch in ['1', '2']:
 
         red['batches'].append({'inputs': inp, 'outputs': out})
 
-with open('camelyon-cnns.red.yml', 'w') as f:
+with open('camelyon-cnns-batchConcurrencyLimit-1.red.yml', 'w') as f:
+    yaml.dump(red, f)
+
+red['execution']['settings']['batchConcurrencyLimit'] = 3
+
+with open('camelyon-cnns-batchConcurrencyLimit-3.red.yml', 'w') as f:
+    yaml.dump(red, f)
+
+red['execution']['settings']['batchConcurrencyLimit'] = 9
+
+with open('camelyon-cnns-batchConcurrencyLimit-9.red.yml', 'w') as f:
     yaml.dump(red, f)
 
 print(len(red['batches']))
