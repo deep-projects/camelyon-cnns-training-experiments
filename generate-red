@@ -18,7 +18,7 @@ with open('camelyon-cnns.cwl.yml') as f:
 
 #%%
 ssh_host = 'avocado01.f4.htw-berlin.de'
-ssh_input_dir = '/data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask'
+ssh_input_dir = '/data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000'
 ssh_output_dir = '/data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments'
 
 red = {
