@@ -10,7 +10,7 @@ The experiments train Convolutional Neural Network models on image data from the
 * [camelyon-cnns](https://github.com/deep-projects/camelyon-cnns) release 0.1
 * camelyon-cnns appliance (Docker image)
     * [docker.io/deepprojects/camelyon-cnns:0.1](https://cloud.docker.com/u/deepprojects/repository/docker/deepprojects/camelyon-cnns)
-    * [Dockerfile](https://github.com/deep-projects/appliances/tree/master/camelyon-utils/0.1)
+    * [Dockerfile](https://github.com/deep-projects/appliances/tree/master/camelyon-cnns/0.1)
 
 
 ## Reproduce at CBMI - HTW Berlin
