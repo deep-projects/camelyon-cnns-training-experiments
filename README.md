@@ -31,6 +31,6 @@ faice exec camelyon-cnns-batchConcurrencyLimit-9.red.yml
 
 ## Reproduce without access to CBMI resources
 
-* Create your own HDF5 database uding https://github.com/deep-projects/camelyon-slide-to-tiles-experiments.
+* Create your own HDF5 database using https://github.com/deep-projects/camelyon-slide-to-tiles-experiments.
 * Replace `inputs`, `outputs` and `execution` sections in the RED files with references to your own resources.
 * Run the adapted RED files via `faice exec`.
