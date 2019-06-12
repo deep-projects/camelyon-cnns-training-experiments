@@ -6,9 +6,11 @@ batches:
     hdf5:
       class: Directory
       connector:
-        access: {dirName: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000,
-          host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
-        command: red-connector-sshfs
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          dirPath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000
+          host: avocado01.f4.htw-berlin.de
+        command: red-connector-ssh
         mount: true
     mask_threshold: '0.1'
     queue_size: '1'
@@ -16,58 +18,66 @@ batches:
     acc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1,
-          fileName: acc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1/acc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     checkpoint:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1,
-          fileName: checkpoint, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1/checkpoint
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     log:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1,
-          fileName: log.json, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1/log.json
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     loss_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1,
-          fileName: loss.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1/loss.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_data:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1,
-          fileName: model_checkpoint.ckpt.data, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1/model_checkpoint.ckpt.data
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_index:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1,
-          fileName: model_checkpoint.ckpt.index, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1/model_checkpoint.ckpt.index
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_final:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1,
-          fileName: model_final.hdf5, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1/model_final.hdf5
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     roc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1,
-          fileName: roc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/1/roc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
 - inputs:
     arch: '1'
@@ -76,9 +86,11 @@ batches:
     hdf5:
       class: Directory
       connector:
-        access: {dirName: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000,
-          host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
-        command: red-connector-sshfs
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          dirPath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000
+          host: avocado01.f4.htw-berlin.de
+        command: red-connector-ssh
         mount: true
     mask_threshold: '0.1'
     queue_size: '1'
@@ -86,58 +98,66 @@ batches:
     acc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2,
-          fileName: acc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2/acc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     checkpoint:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2,
-          fileName: checkpoint, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2/checkpoint
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     log:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2,
-          fileName: log.json, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2/log.json
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     loss_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2,
-          fileName: loss.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2/loss.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_data:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2,
-          fileName: model_checkpoint.ckpt.data, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2/model_checkpoint.ckpt.data
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_index:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2,
-          fileName: model_checkpoint.ckpt.index, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2/model_checkpoint.ckpt.index
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_final:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2,
-          fileName: model_final.hdf5, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2/model_final.hdf5
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     roc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2,
-          fileName: roc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/2/roc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
 - inputs:
     arch: '1'
@@ -146,9 +166,11 @@ batches:
     hdf5:
       class: Directory
       connector:
-        access: {dirName: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000,
-          host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
-        command: red-connector-sshfs
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          dirPath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000
+          host: avocado01.f4.htw-berlin.de
+        command: red-connector-ssh
         mount: true
     mask_threshold: '0.1'
     queue_size: '1'
@@ -156,58 +178,66 @@ batches:
     acc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3,
-          fileName: acc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3/acc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     checkpoint:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3,
-          fileName: checkpoint, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3/checkpoint
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     log:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3,
-          fileName: log.json, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3/log.json
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     loss_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3,
-          fileName: loss.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3/loss.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_data:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3,
-          fileName: model_checkpoint.ckpt.data, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3/model_checkpoint.ckpt.data
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_index:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3,
-          fileName: model_checkpoint.ckpt.index, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3/model_checkpoint.ckpt.index
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_final:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3,
-          fileName: model_final.hdf5, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3/model_final.hdf5
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     roc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3,
-          fileName: roc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/3/roc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
 - inputs:
     arch: '1'
@@ -216,9 +246,11 @@ batches:
     hdf5:
       class: Directory
       connector:
-        access: {dirName: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000,
-          host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
-        command: red-connector-sshfs
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          dirPath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000
+          host: avocado01.f4.htw-berlin.de
+        command: red-connector-ssh
         mount: true
     mask_threshold: '0.1'
     queue_size: '1'
@@ -226,58 +258,66 @@ batches:
     acc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4,
-          fileName: acc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4/acc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     checkpoint:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4,
-          fileName: checkpoint, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4/checkpoint
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     log:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4,
-          fileName: log.json, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4/log.json
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     loss_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4,
-          fileName: loss.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4/loss.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_data:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4,
-          fileName: model_checkpoint.ckpt.data, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4/model_checkpoint.ckpt.data
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_index:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4,
-          fileName: model_checkpoint.ckpt.index, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4/model_checkpoint.ckpt.index
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_final:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4,
-          fileName: model_final.hdf5, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4/model_final.hdf5
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     roc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4,
-          fileName: roc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/4/roc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
 - inputs:
     arch: '1'
@@ -286,9 +326,11 @@ batches:
     hdf5:
       class: Directory
       connector:
-        access: {dirName: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000,
-          host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
-        command: red-connector-sshfs
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          dirPath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000
+          host: avocado01.f4.htw-berlin.de
+        command: red-connector-ssh
         mount: true
     mask_threshold: '0.1'
     queue_size: '1'
@@ -296,58 +338,66 @@ batches:
     acc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5,
-          fileName: acc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5/acc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     checkpoint:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5,
-          fileName: checkpoint, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5/checkpoint
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     log:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5,
-          fileName: log.json, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5/log.json
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     loss_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5,
-          fileName: loss.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5/loss.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_data:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5,
-          fileName: model_checkpoint.ckpt.data, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5/model_checkpoint.ckpt.data
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_index:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5,
-          fileName: model_checkpoint.ckpt.index, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5/model_checkpoint.ckpt.index
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_final:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5,
-          fileName: model_final.hdf5, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5/model_final.hdf5
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     roc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5,
-          fileName: roc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/5/roc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
 - inputs:
     arch: '1'
@@ -356,9 +406,11 @@ batches:
     hdf5:
       class: Directory
       connector:
-        access: {dirName: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000,
-          host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
-        command: red-connector-sshfs
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          dirPath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000
+          host: avocado01.f4.htw-berlin.de
+        command: red-connector-ssh
         mount: true
     mask_threshold: '0.1'
     queue_size: '1'
@@ -366,58 +418,66 @@ batches:
     acc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6,
-          fileName: acc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6/acc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     checkpoint:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6,
-          fileName: checkpoint, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6/checkpoint
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     log:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6,
-          fileName: log.json, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6/log.json
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     loss_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6,
-          fileName: loss.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6/loss.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_data:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6,
-          fileName: model_checkpoint.ckpt.data, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6/model_checkpoint.ckpt.data
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_index:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6,
-          fileName: model_checkpoint.ckpt.index, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6/model_checkpoint.ckpt.index
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_final:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6,
-          fileName: model_final.hdf5, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6/model_final.hdf5
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     roc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6,
-          fileName: roc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/6/roc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
 - inputs:
     arch: '1'
@@ -426,9 +486,11 @@ batches:
     hdf5:
       class: Directory
       connector:
-        access: {dirName: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000,
-          host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
-        command: red-connector-sshfs
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          dirPath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000
+          host: avocado01.f4.htw-berlin.de
+        command: red-connector-ssh
         mount: true
     mask_threshold: '0.1'
     queue_size: '1'
@@ -436,58 +498,66 @@ batches:
     acc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7,
-          fileName: acc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7/acc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     checkpoint:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7,
-          fileName: checkpoint, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7/checkpoint
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     log:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7,
-          fileName: log.json, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7/log.json
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     loss_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7,
-          fileName: loss.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7/loss.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_data:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7,
-          fileName: model_checkpoint.ckpt.data, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7/model_checkpoint.ckpt.data
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_index:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7,
-          fileName: model_checkpoint.ckpt.index, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7/model_checkpoint.ckpt.index
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_final:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7,
-          fileName: model_final.hdf5, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7/model_final.hdf5
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     roc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7,
-          fileName: roc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/7/roc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
 - inputs:
     arch: '1'
@@ -496,9 +566,11 @@ batches:
     hdf5:
       class: Directory
       connector:
-        access: {dirName: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000,
-          host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
-        command: red-connector-sshfs
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          dirPath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000
+          host: avocado01.f4.htw-berlin.de
+        command: red-connector-ssh
         mount: true
     mask_threshold: '0.1'
     queue_size: '1'
@@ -506,58 +578,66 @@ batches:
     acc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8,
-          fileName: acc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8/acc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     checkpoint:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8,
-          fileName: checkpoint, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8/checkpoint
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     log:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8,
-          fileName: log.json, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8/log.json
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     loss_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8,
-          fileName: loss.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8/loss.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_data:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8,
-          fileName: model_checkpoint.ckpt.data, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8/model_checkpoint.ckpt.data
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_index:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8,
-          fileName: model_checkpoint.ckpt.index, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8/model_checkpoint.ckpt.index
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_final:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8,
-          fileName: model_final.hdf5, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8/model_final.hdf5
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     roc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8,
-          fileName: roc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/8/roc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
 - inputs:
     arch: '1'
@@ -566,9 +646,11 @@ batches:
     hdf5:
       class: Directory
       connector:
-        access: {dirName: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000,
-          host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
-        command: red-connector-sshfs
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          dirPath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/merged_tiles/single_mode_mask_5000
+          host: avocado01.f4.htw-berlin.de
+        command: red-connector-ssh
         mount: true
     mask_threshold: '0.1'
     queue_size: '1'
@@ -576,58 +658,66 @@ batches:
     acc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9,
-          fileName: acc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9/acc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     checkpoint:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9,
-          fileName: checkpoint, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9/checkpoint
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     log:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9,
-          fileName: log.json, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9/log.json
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     loss_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9,
-          fileName: loss.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9/loss.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_data:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9,
-          fileName: model_checkpoint.ckpt.data, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9/model_checkpoint.ckpt.data
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_checkpoint_index:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9,
-          fileName: model_checkpoint.ckpt.index, host: avocado01.f4.htw-berlin.de,
-          password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9/model_checkpoint.ckpt.index
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     model_final:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9,
-          fileName: model_final.hdf5, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9/model_final.hdf5
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
     roc_plot:
       class: File
       connector:
-        access: {fileDir: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9,
-          fileName: roc.png, host: avocado01.f4.htw-berlin.de, password: '{{cbmi_password}}',
-          username: '{{cbmi_username}}'}
+        access:
+          auth: {password: '{{cbmi_password}}', username: '{{cbmi_username}}'}
+          filePath: /data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments/cc_sshfs_arch1_lim3_5000/9/roc.png
+          host: avocado01.f4.htw-berlin.de
         command: red-connector-ssh
 cli:
   baseCommand: [camelyon-cnns]
@@ -724,7 +814,7 @@ container:
   engine: nvidia-docker
   settings:
     gpus: {count: 1}
-    image: {url: 'docker.io/deepprojects/camelyon-cnns:0.1'}
+    image: {url: 'docker.io/deepprojects/camelyon-cnns:0.1.1'}
     ram: 32768
 execution:
   engine: ccagency
@@ -734,4 +824,4 @@ execution:
       url: https://agency.f4.htw-berlin.de/cc
     batchConcurrencyLimit: 3
     retryIfFailed: false
-redVersion: '6'
+redVersion: '7'

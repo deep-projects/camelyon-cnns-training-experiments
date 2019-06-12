@@ -22,14 +22,14 @@ ssh_input_dir = '/data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_0
 ssh_output_dir = '/data/ldap/histopathologic/processed/camelyon/CAMELYON16_2019_02_06/camelyon_cnns_training_experiments'
 
 red = {
-    'redVersion': '6',
+    'redVersion': '7',
     'cli': cwl,
     'batches': None,
     'container': {
         'engine': 'nvidia-docker',
         'settings': {
             'image': {
-                'url': 'docker.io/deepprojects/camelyon-cnns:0.1'
+                'url': 'docker.io/deepprojects/camelyon-cnns:0.1.1'
             },
             'ram': 32768,
             'gpus': {
@@ -63,13 +63,15 @@ for lim in [1, 3, 9]:
             'hdf5': {
                 'class': 'Directory',
                 'connector': {
-                    'command': 'red-connector-sshfs',
+                    'command': 'red-connector-ssh',
                     'mount': True,
                     'access': {
                         'host': ssh_host,
-                        'username': '{{cbmi_username}}',
-                        'password': '{{cbmi_password}}',
-                        'dirName': ssh_input_dir
+                        'auth': {
+                            'username': '{{cbmi_username}}',
+                            'password': '{{cbmi_password}}',
+                        },
+                        'dirPath': ssh_input_dir
                     }
                 }
             },
@@ -98,10 +100,11 @@ for lim in [1, 3, 9]:
                     'command': 'red-connector-ssh',
                     'access': {
                         'host': ssh_host,
-                        'username': '{{cbmi_username}}',
-                        'password': '{{cbmi_password}}',
-                        'fileDir': file_dir,
-                        'fileName': file_name
+                        'auth': {
+                            'username': '{{cbmi_username}}',
+                            'password': '{{cbmi_password}}',
+                        },
+                        'filePath': os.path.join(file_dir, file_name)
                     }
                 }
             }

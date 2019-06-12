@@ -1,6 +1,6 @@
 # Camelyon CNNs Training Experiments
 
-This repository contains a reproducible RED experiment. This experiment can be reproduced with CC-FAICE or CC-Agency version 6 of the [Curious Containers](https://www.curious-containers.cc/) project.
+This repository contains a reproducible RED experiment. This experiment can be reproduced with CC-FAICE or CC-Agency version 7 of the [Curious Containers](https://www.curious-containers.cc/) project.
 
 The experiments train Convolutional Neural Network models on image data from the CAMELYON16 database and do performance measurements. It is therefore crucial to wait until one set of experiments is finished, before starting the next. The database must be stored in a single HDF5 file, which can be created using a preliminary experiement (see https://github.com/deep-projects/camelyon-slide-to-tiles-experiments).
 
@@ -18,7 +18,7 @@ The experiments train Convolutional Neural Network models on image data from the
 Running the requires access to compute resources of CBMI - HTW Berlin. If you had access, you could run the original experiment as follows.
 
 ```bash
-pip3 install --user --upgrade cc-faice==6.*
+pip3 install --user --upgrade cc-faice==7.*
 faice exec camelyon-cnns-batchConcurrencyLimit-1.red.yml
 
 # wait until camelyon-cnns-batchConcurrencyLimit-1 is finished
